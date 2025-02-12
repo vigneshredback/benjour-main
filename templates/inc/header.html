@@ -1,0 +1,54 @@
+{% load static %}
+<header class="" >
+    <div class="d-flex justify-content-evenly align-item-center">
+        <img class="mt-2" src="{% static 'images/benjouremblem.jpg' %}" alt="" width="70px" height="70px">
+    </div>
+    <h1 class="text-center mt-3" style="color: #3423a6;">Benjour Publications Private Limited</h1>
+    
+    <nav class="navbar navbar-expand-lg mt-3" style="border-top: 5px solid #3423a6; border-bottom: 1px solid #3423a6;">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- First ul: aligned to the left -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Journals</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          About
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'aim' %}">aim</a></li>
+                          <li><a class="dropdown-item" href="{% url 'scope' %}">scope</a></li>
+                          <li><a class="dropdown-item" href="{% url 'team' %}">team</a></li>
+                          <li><a class="dropdown-item" href="{% url 'privacy' %}">privacy</a></li>
+                          {% comment %} <li><hr class="dropdown-divider"></li> {% endcomment %}
+                
+                        </ul>
+                      </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'submission' %}">Submission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+                <!-- Second ul: aligned to the right -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                        <a class="nav-link" style="color: red;" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                        {% else %}
+                        <a class="nav-link" style="color: #3423a6;" href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>

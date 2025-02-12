@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+{% block content %}
+<style>
+    .text-primary a:hover {
+        color: rgb(158, 230, 245) !important;
+    }
+</style>
+
+<div class="container mt-4 mx-2 mb-3 bg-light p-3 rounded " style="width: 99%;">
+    {% for item in journal_paper %}
+    <div class="mt-5 mb-5 d-flex justify-content-center flex-column align-items-start">
+        <h5 class="text-primary">
+            <a href="{% url 'journal_paper_view' item.id %}" class="text-decoration-none" style="color: #3423a6; transition: color 0.3s;">
+                {{item.title}}
+            </a>
+        </h5>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
+{% block script %} {% endblock script %}
